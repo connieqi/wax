@@ -1,15 +1,20 @@
 var waxWane = {
     wax: function() {
-        $('#masthead-positioner').hide();
-        $('#masthead-positioner-height-offset').hide();
+        chrome.tabs.executeScript({file: '/js/lib/jquery.min.js'}, function() {
+            chrome.tabs.executeScript({file: '/js/yt_wax.js'});
+        });
 
-        $('#msg').text('Video waxed');
+        $('#msg').text('Video expanded');
         $('#wax-btn').hide();
         $('#wane-btn').show();
     },
 
     wane: function() {
-        $('#msg').text('Video waned');
+        chrome.tabs.executeScript({file: '/js/lib/jquery.min.js'}, function() {
+            chrome.tabs.executeScript({file: '/js/yt_wane.js'});
+        });
+
+        $('#msg').text('Back to normal');
         $('#wane-btn').hide();
         $('#wax-btn').show();
     },
@@ -33,7 +38,6 @@ var waxWane = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('hi wax');
     waxWane.onYouTube(function(response) {
         if (response === true) {
             waxWane.wax();
@@ -41,11 +45,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     $('#wax-btn').on('click', function() {
-        waxWane.wax();
+        waxWane.onYouTube(function(response) {
+            if (response === true) {
+                waxWane.wax();
+            }
+        });
     });
     
     $('#wane-btn').on('click', function() {
-        waxWane.wane();
+        waxWane.onYouTube(function(response) {
+            if (response === true) {
+                waxWane.wane();
+            }
+        });
     });
 
 });
