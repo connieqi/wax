@@ -1,0 +1,14 @@
+body {
+    min-width: 200px;
+    overflow-x: hidden;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.button {
+
+}
+
+.hide {
+    display: none;
+}
