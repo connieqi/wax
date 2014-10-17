@@ -2,7 +2,7 @@
     "manifest_version": 2,
     
     "name": "Wax",
-    "description": "Maximize Youtube videos to fill your Chrome tab.",
+    "description": "The best way to catch videos and multitask.",
     "version": "1.0",
 
     "permissions": [

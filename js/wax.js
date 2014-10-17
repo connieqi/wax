@@ -36,11 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('hi wax');
     waxWane.onYouTube(function(response) {
         if (response === true) {
-            waxwane.wax();
+            waxWane.wax();
         }
     });
-
-    waxWane.wax();
 
     $('#wax-btn').on('click', function() {
         waxWane.wax();
